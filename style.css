@@ -1,31 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   height: 100vh;
-  background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   overflow: hidden;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
 }
 
 .card {
   background: white;
   padding: 25px;
-  border-radius: 20px;
+  border-radius: 25px;
   text-align: center;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   animation: pop 1s ease;
 }
 
 @keyframes pop {
-  from { transform: scale(0.7); opacity: 0; }
+  from { transform: scale(0.6); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
 
 .slider img {
-  width: 260px;
-  border-radius: 15px;
+  width: 100%;
+  border-radius: 20px;
   margin: 15px 0;
   animation: fade 1s ease;
 }
@@ -39,8 +52,9 @@ button {
   background: #ff4081;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 18px;
   border-radius: 30px;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
+  margin: 6px;
 }
