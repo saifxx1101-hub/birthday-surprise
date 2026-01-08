@@ -2,20 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Happy Birthday 🎉</title>
+  <title>Birthday Surprise 🎉</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<canvas id="confetti"></canvas>
+
 <div class="card">
-  <h1>🎂 Happy Birthday 🎂</h1>
-  <p>Wishing you love, happiness & surprises 💖</p>
+  <h1 id="name">🎂 Happy Birthday 🎂</h1>
+  <p>May your day be full of love, smiles & surprises 💖</p>
 
   <div class="slider">
     <img id="slide" src="Birthday1.jpg">
   </div>
 
   <button onclick="playMusic()">🎵 Play Music</button>
+  <button onclick="share()">📲 Share Surprise</button>
 </div>
 
 <audio id="music" src="music.mp3"></audio>
