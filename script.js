@@ -1,67 +1,55 @@
-// NAME FROM URL
-const params = new URLSearchParams(window.location.search);
-const userName = params.get("name");
-if (userName) {
-  document.getElementById("name").innerText =
-    "🎂 Happy Birthday " + userName + " 🎂";
+/* 🎂 Typing Effect */
+const text = "🎉 Happy Birthday My Love 🎂";
+let i = 0;
+function typeEffect() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeEffect, 100);
+  }
+}
+typeEffect();
+
+/* 🎈 Balloons */
+const balloonBox = document.querySelector(".balloons");
+for (let i = 0; i < 20; i++) {
+  let b = document.createElement("span");
+  b.style.left = Math.random() * 100 + "vw";
+  b.style.background = `hsl(${Math.random() * 360}, 100%, 75%)`;
+  b.style.animationDuration = 5 + Math.random() * 5 + "s";
+  balloonBox.appendChild(b);
 }
 
-// IMAGE SLIDER
-let index = 0;
-const slide = document.getElementById("slide");
-
-
-// MUSIC
-function playMusic() {
-  document.getElementById("music").play();
-}
-
-// SHARE
-function share() {
-  const url = window.location.href;
-  window.open(
-    `https://wa.me/?text=🎉%20I%20have%20a%20birthday%20surprise%20for%20you!%20👉%20${url}`,
-    "_blank"
-  );
-}
-
-// CONFETTI
-const canvas = document.getElementById("confetti");
+/* 🎆 Fireworks */
+const canvas = document.getElementById("fireworks");
 const ctx = canvas.getContext("2d");
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const pieces = [];
-for (let i = 0; i < 150; i++) {
-  pieces.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 6 + 4,
-    d: Math.random() * 10,
-  });
-}
-
-function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "rgba(255,255,255,0.8)";
+function fireworks() {
+  ctx.fillStyle = "rgba(0,0,0,0.1)";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
   ctx.beginPath();
-  for (let i = 0; i < pieces.length; i++) {
-    const p = pieces[i];
-    ctx.moveTo(p.x, p.y);
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
-  }
+  ctx.arc(Math.random()*canvas.width, Math.random()*canvas.height/2, 3, 0, Math.PI*2);
+  ctx.fillStyle = `hsl(${Math.random()*360},100%,50%)`;
   ctx.fill();
-  update();
 }
+setInterval(fireworks, 100);
 
-function update() {
-  for (let i = 0; i < pieces.length; i++) {
-    pieces[i].y += Math.cos(pieces[i].d) + 1;
-    if (pieces[i].y > canvas.height) {
-      pieces[i].y = 0;
-    }
+/* ⏳ Countdown */
+const target = new Date("2026-12-31").getTime(); // CHANGE DATE
+setInterval(() => {
+  let now = new Date().getTime();
+  let diff = target - now;
+  if (diff > 0) {
+    let d = Math.floor(diff / (1000*60*60*24));
+    document.getElementById("countdown").innerText =
+      `🎉 ${d} days to your special day`;
   }
-}
+}, 1000);
 
-setInterval(draw, 30);
+/* 🎵 Mobile Music Fix */
+function playMusic() {
+  const music = document.getElementById("music");
+  music.play();
+}
