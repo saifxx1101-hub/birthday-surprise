@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Happy Birthday 🎉</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>🎂 Happy Birthday 🎂</h1>
-<p>Wishing you a day full of happiness and surprises 💖</p>
+<div class="card">
+  <h1>🎂 Happy Birthday 🎂</h1>
+  <p>Wishing you love, happiness & surprises 💖</p>
 
-<img src="Birthday.jpg" width="250">
+  <div class="slider">
+    <img id="slide" src="Birthday1.jpg">
+  </div>
 
-<button onclick="document.getElementById('music').play()">Play Music 🎵</button>
+  <button onclick="playMusic()">🎵 Play Music</button>
+</div>
 
 <audio id="music" src="music.mp3"></audio>
 
 <script src="script.js"></script>
 </body>
 </html>
-
